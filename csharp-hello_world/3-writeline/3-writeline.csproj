@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>_3_new_project</RootNamespace>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>_3_writeline</RootNamespace>
   </PropertyGroup>
 
 </Project>

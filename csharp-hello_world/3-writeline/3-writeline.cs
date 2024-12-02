@@ -1,6 +1,6 @@
 using System;
 
-namespace _3_new_project
+namespace _3_writeline
 {
     class Program
     {
@@ -10,4 +10,3 @@ namespace _3_new_project
         }
     }
 }
-
