@@ -1,0 +1,5 @@
+/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/obj/Debug/netcoreapp2.1/9-print_specifiers.csproj.AssemblyReference.cache
+/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/obj/Debug/netcoreapp2.1/9-print_specifiers.GeneratedMSBuildEditorConfig.editorconfig
+/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/obj/Debug/netcoreapp2.1/9-print_specifiers.AssemblyInfoInputs.cache
+/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/obj/Debug/netcoreapp2.1/9-print_specifiers.AssemblyInfo.cs
+/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/obj/Debug/netcoreapp2.1/9-print_specifiers.csproj.CoreCompileInputs.cache
