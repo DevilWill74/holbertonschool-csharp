@@ -1,4 +1,19 @@
-#!/usr/bin/env bash
-dotnet new console --output 2-new_project
-dotnet build 2-new_project
-dotnet run --project ./2-new_project
+#!/bin/bash
+
+# Create a new directory for the project if it doesn't exist
+mkdir -p 2-new_project
+
+# Navigate into the project directory
+cd 2-new_project
+
+# Initialize a new C# console application
+dotnet new console
+
+# Build the project
+dotnet build
+
+# Run the project
+dotnet run
+
+# Return to the parent directory
+cd ..
