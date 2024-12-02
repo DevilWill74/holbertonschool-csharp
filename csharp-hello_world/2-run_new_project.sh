@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-mkdir 2-new_project
-cd 2-new_project
-dotnet new console
-dotnet build
-dotnet run
-
+dotnet new console -o 4-print_integer
+dotnet build 4-print_integer
+dotnet run --project -print_integer
