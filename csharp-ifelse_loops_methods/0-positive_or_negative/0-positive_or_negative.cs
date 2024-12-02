@@ -14,3 +14,4 @@ class Program
             Console.WriteLine("{0} is zero", number);
     }
 }
+
