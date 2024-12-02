@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ll4F3m1xd9/LWh+tnx5DyFlowrwbvD/2qPcfplRyMQe5zyKpBteNCgyJ7+2wuifVsZNJ8Z5uAfXvpVcnZ5kSBQ==",
+  "success": true,
+  "projectFilePath": "/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj",
+  "expectedPackageFiles": [
+    "/root/.nuget/packages/microsoft.netcore.app/2.1.0/microsoft.netcore.app.2.1.0.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.netcore.dotnetapphost/2.1.0/microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.netcore.dotnethostpolicy/2.1.0/microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.netcore.dotnethostresolver/2.1.0/microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.netcore.platforms/2.1.0/microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.netcore.targets/2.1.0/microsoft.netcore.targets.2.1.0.nupkg.sha512",
+    "/root/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
