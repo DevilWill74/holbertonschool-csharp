@@ -1,0 +1,15 @@
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/bin/Debug/net6.0/0-positive_or_negative
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/bin/Debug/net6.0/0-positive_or_negative.deps.json
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/bin/Debug/net6.0/0-positive_or_negative.runtimeconfig.json
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/bin/Debug/net6.0/0-positive_or_negative.dll
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/bin/Debug/net6.0/0-positive_or_negative.pdb
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/0-positive_or_negative.csproj.AssemblyReference.cache
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/0-positive_or_negative.GeneratedMSBuildEditorConfig.editorconfig
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/0-positive_or_negative.AssemblyInfoInputs.cache
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/0-positive_or_negative.AssemblyInfo.cs
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/0-positive_or_negative.csproj.CoreCompileInputs.cache
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/0-positive_or_negative.dll
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/refint/0-positive_or_negative.dll
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/0-positive_or_negative.pdb
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/0-positive_or_negative.genruntimeconfig.cache
+/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/obj/Debug/net6.0/ref/0-positive_or_negative.dll
