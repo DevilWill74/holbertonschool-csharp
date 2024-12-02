@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/holbertonschool-csharp/csharp-hello_world/2-new_project/2-new_project.csproj": {}
+    "/holbertonschool-csharp/csharp-hello_world/2-print_integer/2-print_integer.csproj": {}
   },
   "projects": {
-    "/holbertonschool-csharp/csharp-hello_world/2-new_project/2-new_project.csproj": {
+    "/holbertonschool-csharp/csharp-hello_world/2-print_integer/2-print_integer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/holbertonschool-csharp/csharp-hello_world/2-new_project/2-new_project.csproj",
-        "projectName": "2-new_project",
-        "projectPath": "/holbertonschool-csharp/csharp-hello_world/2-new_project/2-new_project.csproj",
+        "projectUniqueName": "/holbertonschool-csharp/csharp-hello_world/2-print_integer/2-print_integer.csproj",
+        "projectName": "2-print_integer",
+        "projectPath": "/holbertonschool-csharp/csharp-hello_world/2-print_integer/2-print_integer.csproj",
         "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/holbertonschool-csharp/csharp-hello_world/2-new_project/obj/",
+        "outputPath": "/holbertonschool-csharp/csharp-hello_world/2-print_integer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/root/.nuget/NuGet/NuGet.Config"
