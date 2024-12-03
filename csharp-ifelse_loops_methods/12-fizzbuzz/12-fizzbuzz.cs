@@ -1,8 +1,6 @@
 using System;
 
-namespace _12_fizzbuzz
-{
-    class Program
+class Program
     {
         static void Main(string[] args)
         {
@@ -21,4 +19,3 @@ namespace _12_fizzbuzz
             }
         }
     }
-}
