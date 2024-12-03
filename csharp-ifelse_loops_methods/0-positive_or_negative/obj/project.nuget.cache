@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "GB2ognuEBG8oSQh0gWrxm6an/q9Q/p1RbuyepO4ETyghPWd643+uEk8l1///uGClUn2a6fkIm7u4SwNKh0/7uw==",
+  "dgSpecHash": "A4YfFdya6EI=",
   "success": true,
-  "projectFilePath": "/holbertonschool-csharp/csharp-ifelse_loops_methods/0-positive_or_negative/0-positive_or_negative.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Alexi\\holbertonschool-csharp\\csharp-ifelse_loops_methods\\0-positive_or_negative\\0-positive_or_negative.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.11\\microsoft.netcore.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.11\\microsoft.windowsdesktop.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.11\\microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.11\\microsoft.netcore.app.host.win-x64.8.0.11.nupkg.sha512"
+  ],
   "logs": []
 }
