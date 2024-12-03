@@ -11,3 +11,17 @@
 /holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.dll
 /holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.pdb
 /holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.genruntimeconfig.cache
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/bin/Debug/netcoreapp2.1/4-print_integer.deps.json
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/bin/Debug/netcoreapp2.1/4-print_integer.runtimeconfig.json
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/bin/Debug/netcoreapp2.1/4-print_integer.runtimeconfig.dev.json
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/bin/Debug/netcoreapp2.1/4-print_integer.dll
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/bin/Debug/netcoreapp2.1/4-print_integer.pdb
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.csproj.AssemblyReference.cache
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.AssemblyInfoInputs.cache
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.AssemblyInfo.cs
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.csproj.CoreCompileInputs.cache
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.sourcelink.json
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.dll
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.pdb
+/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/Debug/netcoreapp2.1/4-print_integer.genruntimeconfig.cache

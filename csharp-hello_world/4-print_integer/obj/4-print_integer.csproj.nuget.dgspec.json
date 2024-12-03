@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj": {}
+    "/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj": {}
   },
   "projects": {
-    "/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj": {
+    "/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj",
+        "projectUniqueName": "/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj",
         "projectName": "4-print_integer",
-        "projectPath": "/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj",
+        "projectPath": "/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/4-print_integer.csproj",
         "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/",
+        "outputPath": "/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/4-print_integer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/root/.nuget/NuGet/NuGet.Config"
@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -56,7 +61,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.428/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/254/sdk/8.0.404/RuntimeIdentifierGraph.json"
         }
       }
     }
