@@ -1,12 +1,16 @@
-﻿using System;
-class Number
+using System;
+
+public class Number
 {
     public static int PrintLastDigit(int number)
     {
-        int ud = number%10;
-        if (ud < 0)
-            ud = ud * -1;
-        Console.Write(ud);
-        return ud;
+        // Calculer la dernière chiffre en prenant la valeur absolue et le modulo 10
+        int lastDigit = Math.Abs(number % 10);
+        
+        // Afficher la dernière chiffre
+        Console.Write(lastDigit);
+
+        // Retourner la dernière chiffre
+        return lastDigit;
     }
 }
