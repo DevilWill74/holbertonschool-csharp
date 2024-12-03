@@ -1,30 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/9-print_specifiers.csproj": {}
+    "C:\\Users\\Alexi\\holbertonschool-csharp\\csharp-hello_world\\9-print_specifiers\\9-print_specifiers.csproj": {}
   },
   "projects": {
-    "/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/9-print_specifiers.csproj": {
+    "C:\\Users\\Alexi\\holbertonschool-csharp\\csharp-hello_world\\9-print_specifiers\\9-print_specifiers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/9-print_specifiers.csproj",
+        "projectUniqueName": "C:\\Users\\Alexi\\holbertonschool-csharp\\csharp-hello_world\\9-print_specifiers\\9-print_specifiers.csproj",
         "projectName": "9-print_specifiers",
-        "projectPath": "/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/9-print_specifiers.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/holbertonschool-csharp/csharp-hello_world/9-print_specifiers/obj/",
+        "projectPath": "C:\\Users\\Alexi\\holbertonschool-csharp\\csharp-hello_world\\9-print_specifiers\\9-print_specifiers.csproj",
+        "packagesPath": "C:\\Users\\Alexi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alexi\\holbertonschool-csharp\\csharp-hello_world\\9-print_specifiers\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.1"
+          "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.1": {
-            "targetAlias": "netcoreapp2.1",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -32,19 +34,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
-        "netcoreapp2.1": {
-          "targetAlias": "netcoreapp2.1",
-          "dependencies": {
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
-            }
-          },
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -56,7 +56,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.428/RuntimeIdentifierGraph.json"
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
