@@ -1,0 +1,15 @@
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\bin\Debug\net8.0\0-print_array.exe
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\bin\Debug\net8.0\0-print_array.deps.json
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\bin\Debug\net8.0\0-print_array.runtimeconfig.json
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\bin\Debug\net8.0\0-print_array.dll
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\bin\Debug\net8.0\0-print_array.pdb
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\0-print_array.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\0-print_array.AssemblyInfoInputs.cache
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\0-print_array.AssemblyInfo.cs
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\0-print_array.csproj.CoreCompileInputs.cache
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\0-print_array.sourcelink.json
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\0-print_array.dll
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\refint\0-print_array.dll
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\0-print_array.pdb
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\0-print_array.genruntimeconfig.cache
+C:\Users\Alexi\holbertonschool-csharp\csharp-arrays_lists_dictionaries\0-print_array\obj\Debug\net8.0\ref\0-print_array.dll
