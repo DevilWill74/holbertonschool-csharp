@@ -1,6 +1,0 @@
-/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/2-new_project/obj/Debug/netcoreapp2.1/2-new_project.csproj.AssemblyReference.cache
-/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/2-new_project/obj/Debug/netcoreapp2.1/2-new_project.GeneratedMSBuildEditorConfig.editorconfig
-/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/2-new_project/obj/Debug/netcoreapp2.1/2-new_project.AssemblyInfoInputs.cache
-/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/2-new_project/obj/Debug/netcoreapp2.1/2-new_project.AssemblyInfo.cs
-/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/2-new_project/obj/Debug/netcoreapp2.1/2-new_project.csproj.CoreCompileInputs.cache
-/mnt/c/Users/Alexi/holbertonschool-csharp/csharp-hello_world/2-new_project/obj/Debug/netcoreapp2.1/2-new_project.sourcelink.json
