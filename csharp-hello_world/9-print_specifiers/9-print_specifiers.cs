@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 class Program
 {
@@ -6,7 +7,11 @@ class Program
     {
         double percent = .7553;
         double currency = 98765.4321;
-        Console.WriteLine("Percent: {0:P2}", percent);
-        Console.WriteLine($"Currency: {currency.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))}");
+
+        // Formattage du pourcentage
+        Console.WriteLine($"Percent: {percent.ToString("P2", CultureInfo.InvariantCulture)}");
+
+        // Formattage de la monnaie
+        Console.WriteLine($"Currency: {currency.ToString("C2", CultureInfo.GetCultureInfo("en-US"))}");
     }
 }
