@@ -1,0 +1,7 @@
+# Ignore bin and obj folders for c sharp
+*.suo
+*.user
+_ReSharper.*
+bin/
+obj/
+packages
