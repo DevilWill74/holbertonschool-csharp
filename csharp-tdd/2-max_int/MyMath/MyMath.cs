@@ -1,17 +1,27 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 
 namespace MyMath
 {
+    ///<summary>Operations Class</summary>
     public class Operations
     {
+        ///<summary>returns the max integer in a list of integers</summary>
         public static int Max(List<int> nums)
         {
-            int len = nums.Count;
-            if (len == 0 || nums == null)
+            if (nums.Count == 0)
+            {
                 return 0;
-            nums.Sort();
-            return nums[len -1];
+            }
+            int maxInt = nums[0];
+            foreach (int tmp in nums)
+            {
+                if (tmp > maxInt)
+                {
+                    maxInt = tmp;
+                }
+            }
+            return maxInt;
         }
     }
 }
