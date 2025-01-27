@@ -8,7 +8,7 @@ class MatrixMath
     /// <param name="matrix">A square 2D matrix.</param>
     /// <param name="angle">The rotation angle in radians.</param>
     /// <returns>
-    /// A new matrix with rotated values,
+    /// A new matrix with the rotated values,
     /// or a matrix containing -1 if the input matrix is invalid.
     /// </returns>
     public static double[,] Rotate2D(double[,] matrix, double angle)
@@ -21,19 +21,20 @@ class MatrixMath
             return new double[,] { { -1 } };
         }
 
-        // Calculate rotation matrix
+        // Calculate cos(angle) and sin(angle)
         double cosTheta = Math.Cos(angle);
         double sinTheta = Math.Sin(angle);
 
+        // Create a new matrix for the rotated values
         double[,] result = new double[rows, cols];
 
-        // Rotate each element in the matrix
+        // Apply rotation to each value in the matrix
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
             {
-                double x = matrix[i, j];
-                result[i, j] = x * cosTheta + x * sinTheta;
+                double value = matrix[i, j];
+                result[i, j] = (value * cosTheta) - (value * sinTheta);
             }
         }
 
