@@ -1,26 +1,47 @@
 using System;
 
-///<summary> 20. Matrix rotation #1 </summary>
 class MatrixMath
 {
-	///<summary> method that rotates a square 2D matrix by a given angle in radians and returns the resulting matrix. </summary>
-	public static double[,] Rotate2D(double[,] matrix, double angle)
-	{
-		if (matrix.GetLength(1) > 2)
-			return new double[,] {{-1}};
-		double[,] nmatrix = {{Math.Cos(angle), Math.Sin(angle)}, {-1 * Math.Sin(angle), Math.Cos(angle)}};
-		double[,] tp = new double[2, 2];
+    /// <summary>
+    /// Rotates a square 2D matrix by a given angle in radians.
+    /// </summary>
+    /// <param name="matrix">A 2x2 matrix to rotate.</param>
+    /// <param name="angle">The rotation angle in radians.</param>
+    /// <returns>
+    /// The resulting matrix after rotation,
+    /// or a matrix containing -1 if the input is invalid.
+    /// </returns>
+    public static double[,] Rotate2D(double[,] matrix, double angle)
+    {
+        // Check if the matrix is 2x2
+        if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2)
+            return new double[,] { { -1 } };
 
-		for (int i = 0; i < 2; i++)
+        // Rotation matrix
+        double cosTheta = Math.Cos(angle);
+        double sinTheta = Math.Sin(angle);
+        double[,] rotationMatrix =
         {
-			for (int j = 0; j < 2; j++)
+            { cosTheta, -sinTheta },
+            { sinTheta, cosTheta }
+        };
+
+        // Resulting matrix
+        double[,] result = new double[2, 2];
+
+        // Perform matrix multiplication
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 2; j++)
             {
-				for (int t = 0; t < 2; t++)
-                {
-					tp[i, j] = Math.Round(tp[i, j] + (matrix[i, t] * nmatrix[t, j]), 2);
-                }
+                result[i, j] = Math.Round(
+                    matrix[i, 0] * rotationMatrix[0, j] +
+                    matrix[i, 1] * rotationMatrix[1, j],
+                    2
+                );
             }
         }
-		return tp;
-	}
+
+        return result;
+    }
 }
