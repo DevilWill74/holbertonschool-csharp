@@ -1,0 +1,15 @@
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\bin\Debug\netcoreapp2.1\3-type_get.xml
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\bin\Debug\netcoreapp2.1\3-type_get.deps.json
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\bin\Debug\netcoreapp2.1\3-type_get.runtimeconfig.json
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\bin\Debug\netcoreapp2.1\3-type_get.runtimeconfig.dev.json
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\bin\Debug\netcoreapp2.1\3-type_get.dll
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\bin\Debug\netcoreapp2.1\3-type_get.pdb
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.csproj.AssemblyReference.cache
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.AssemblyInfoInputs.cache
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.AssemblyInfo.cs
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.csproj.CoreCompileInputs.cache
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.sourcelink.json
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.dll
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.pdb
+C:\Users\Alexi\holbertonschool-csharp\csharp-inheritance\3-type_get\obj\Debug\netcoreapp2.1\3-type_get.genruntimeconfig.cache
