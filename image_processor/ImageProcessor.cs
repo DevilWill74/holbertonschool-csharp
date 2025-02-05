@@ -1,118 +1,202 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-///<summary> Class ImageProcessor </summary>
-class ImageProcessor
-{
-    ///<summary> Inverse Method: produce inverse of given image </summary>
-    public static void Inverse(string[] filenames)
-    {
-        foreach (string filename in filenames)
-        {
-            Bitmap bitmap = new Bitmap(filename);
-            Color c;
-            for (int x = 0; x < bitmap.Width; x++)
-            {
-                for (int y = 0; y < bitmap.Height; y++)
-                {
-                    c = bitmap.GetPixel(x, y);
-                    c = Color.FromArgb(255, (255 - c.R), (255 - c.G), (255 - c.B));
-                    bitmap.SetPixel(x, y, c);
-                }
-            }
-            string new_filename = Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename);
-            bitmap.Save(new_filename);
-        }
-    }
+/// <summary>
+/// Provides methods to perfrom various image processing techniques.
+/// </summary>
+class ImageProcessor {
 
-    /// <summary> Grayscale Method: produce greyscale image of given image </summary>
-    public static void Grayscale(string[] filenames) 
-    {
-        foreach (string filename in filenames)
-        {
-            Bitmap bitmap = new Bitmap(filename);
-            Color c;
-            for (int i = 0; i < bitmap.Width; i++)
-            {
-                for (int j = 0; j < bitmap.Height; j++)
-                {
-                    c = bitmap.GetPixel(i, j);
-                    byte gray = (byte)(.299 * c.R + .587 * c.G + .114 * c.B);
-                    bitmap.SetPixel(i, j, Color.FromArgb(gray, gray, gray));
-                }
-            }
-            string new_filename = Path.GetFileNameWithoutExtension(filename) + "_grayscale" + Path.GetExtension(filename);
-            bitmap.Save(new_filename);
-        }
-    }
-
-    /// <summary> BlackWhite Method: produce a black/white image from a given image </summary>
-    public static void BlackWhite(string[] filenames, double threshold) {
-    {
-        foreach (string filename in filenames)
-        {
-            Bitmap bitmap = new Bitmap(filename);
-            Color c;
-            for (int i = 0; i < bitmap.Width; i++)
-            {
-                for (int j = 0; j < bitmap.Height; j++)
-                {
-                    c = bitmap.GetPixel(i, j);
-                    double luminance = ((c.R * 0.3) + (c.G * 0.59) + (c.B * 0.11));
-                    if (luminance < threshold)
-                    {
-                        bitmap.SetPixel(i, j, Color.FromArgb(0, 0, 0));
-                    }
-                    else
-                    {
-                        bitmap.SetPixel(i, j, Color.FromArgb(255, 255, 255));
-                    }
-                }
-            }
-            string new_filename = Path.GetFileNameWithoutExtension(filename) + "_bw" + Path.GetExtension(filename);
-            bitmap.Save(new_filename);
-            }
-        }
-    }
-    /// <summary> Thumbnail Method: produce a thumbnail image from a given image </summary>
+    /// <summary>
+    /// Converts a list of image(s) to thumbnails of given height. 
+    /// </summary>
+    /// <param name="filenames">List of images to convert.</param>
+    /// <param name="height">Target height of thumbnail.</param>
     public static void Thumbnail(string[] filenames, int height)
     {
-        foreach (string filename in filenames)
+        // Iterate through all .jpg files in images directory
+        Parallel.ForEach(filenames, (imagePath) =>
         {
-            Bitmap bmap = new Bitmap(filename);
-            //Color c;
-            int imageHeight = bmap.Height;
-            int imageWidth = bmap.Width;
-            double aspectRatioX = (double)imageWidth / imageHeight;
-            int thumbWidth = (int)(height * aspectRatioX);
+            {
+                // For each image file create a new Bitmap object
+                Bitmap image = new Bitmap(imagePath);
 
-            Image thumb = bmap.GetThumbnailImage(thumbWidth, height, ()=>false, IntPtr.Zero);
+                // Calculate new thumbnail width
+                int thumbnailWidth = image.Width / (image.Height / height);
 
-            var qualityEncoder = System.Drawing.Imaging.Encoder.Quality;
-            var quality = (long)100; //Image Quality 
-            var ratio = new EncoderParameter(qualityEncoder, quality);
-            var codecParams = new EncoderParameters(1);
-            codecParams.Param[0] = ratio;
-            var codecInfo = GetEncoder(ImageFormat.Jpeg);
+                Image thumbnail = image.GetThumbnailImage(thumbnailWidth, height, () => { return false; }, IntPtr.Zero);
 
-            string new_filename = Path.GetFileNameWithoutExtension(filename) + "_th" + Path.GetExtension(filename);
-            thumb.Save(new_filename, codecInfo, codecParams);
-        }
+                // Extract filename from path and edit for new save
+                string[] nameSplit = imagePath.Split(new Char[] {'/', '.'});
+                String newFilename = nameSplit[nameSplit.Length - 2] + "_th." +
+                                        nameSplit[nameSplit.Length - 1];
+
+                // Save inverted image to new file
+                thumbnail.Save(newFilename);
+            }
+        });
     }
 
-    ///<summary> GetEncoder Method </summary>
-    private static ImageCodecInfo GetEncoder(ImageFormat format)
+    /// <summary>
+    /// Converts a list of image(s) to black and white.
+    /// </summary>
+    /// <param name="filenames">A list of images to invert.</param>
+    /// <param name="threshold">
+    /// A threshold for determining whether a pixel should go black or white.
+    /// </param>
+    public static void BlackWhite(string[] filenames, double threshold)
     {
-        ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
-        foreach (ImageCodecInfo codec in codecs)
+        // Iterate through all .jpg files in images directory
+        Parallel.ForEach(filenames, (imagePath) =>
         {
-            if (codec.FormatID == format.Guid)
             {
-                return codec;
+                // For each image file create a new Bitmap object
+                Bitmap image = new Bitmap(imagePath);
+
+                // Lock the bitmaps bits
+                BitmapData bmpData = image.LockBits(
+                    new Rectangle(0, 0, image.Width, image.Height),
+                    ImageLockMode.ReadWrite, image.PixelFormat);
+
+                // Determine size of image in bytes
+                int bytes = bmpData.Stride * bmpData.Height;
+
+                // Allocate buffer size of image bytes
+                byte[] rgbBuffer = new byte[bytes];
+
+                // Safely copy bitmap data to buffer
+                System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, rgbBuffer, 0, bytes);
+
+                // Iterate through RGB buffer, inverting each color value to gray
+                for (var i = 0; i + 2 < bytes; i += 3)
+                {
+                    byte gray = (byte)((0.21 * rgbBuffer[i]) + 
+                                       (0.71 * rgbBuffer[i + 1]) + 
+                                       (0.071 * rgbBuffer[i + 2]));
+                    
+                    // Compare grayscale against threshold to determine black or white
+                    gray = (byte)(gray >= threshold ? 255 : 0);
+
+                    rgbBuffer[i] = rgbBuffer[i + 1] = rgbBuffer[i + 2] = gray;
+                }
+
+                // Copy values back from buffer
+                System.Runtime.InteropServices.Marshal.Copy(rgbBuffer, 0, bmpData.Scan0, bytes);
+
+                // Unlock bits
+                image.UnlockBits(bmpData);
+
+                // Extract filename from path and edit for new save
+                string[] nameSplit = imagePath.Split(new Char[] {'/', '.'});
+                String newFilename = nameSplit[nameSplit.Length - 2] + "_bw." +
+                                        nameSplit[nameSplit.Length - 1];
+
+                // Save inverted image to new file
+                image.Save(newFilename);
             }
-        }
-        return null;
+        });
+    }
+
+    /// <summary>
+    /// Converts a list of image(s) to grayscale.
+    /// </summary>
+    /// <param name="filenames">A list of images to invert.</param>
+    public static void Grayscale(string[] filenames)
+    {
+        // Iterate through all .jpg files in images directory
+        Parallel.ForEach(filenames, (imagePath) =>
+        {
+            {
+                // For each image file create a new Bitmap object
+                Bitmap image = new Bitmap(imagePath);
+
+                // Lock the bitmaps bits
+                BitmapData bmpData = image.LockBits(
+                    new Rectangle(0, 0, image.Width, image.Height),
+                    ImageLockMode.ReadWrite, image.PixelFormat);
+
+                // Determine size of image in bytes
+                int bytes = bmpData.Stride * bmpData.Height;
+
+                // Allocate buffer size of image bytes
+                byte[] rgbBuffer = new byte[bytes];
+
+                // Safely copy bitmap data to buffer
+                System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, rgbBuffer, 0, bytes);
+
+                // Iterate through RGB buffer, inverting each color value to gray
+                for (var i = 0; i + 2 < bytes; i += 3)
+                {
+                    byte gray = (byte)((0.21 * rgbBuffer[i]) + 
+                                       (0.71 * rgbBuffer[i + 1]) + 
+                                       (0.071 * rgbBuffer[i + 2]));
+                    rgbBuffer[i] = rgbBuffer[i + 1] = rgbBuffer[i + 2] = gray;
+                }
+
+                // Copy values back from buffer
+                System.Runtime.InteropServices.Marshal.Copy(rgbBuffer, 0, bmpData.Scan0, bytes);
+
+                // Unlock bits
+                image.UnlockBits(bmpData);
+
+                // Extract filename from path and edit for new save
+                string[] nameSplit = imagePath.Split(new Char[] {'/', '.'});
+                String newFilename = nameSplit[nameSplit.Length - 2] + "_grayscale." +
+                                        nameSplit[nameSplit.Length - 1];
+
+                // Save inverted image to new file
+                image.Save(newFilename);
+            }
+        });
+    }
+
+    /// <summary>
+    /// Inverts a list of image(s).
+    /// </summary>
+    /// <param name="filenames">A list of images to invert.</param>
+    public static void Inverse(string[] filenames) {
+
+        // Iterate through all .jpg files in images directory
+        Parallel.ForEach(filenames, (imagePath) =>
+        {
+            {
+                // For each image file create a new Bitmap object
+                Bitmap image = new Bitmap(imagePath);
+
+                // Lock the bitmaps bits
+                BitmapData bmpData = image.LockBits(
+                    new Rectangle(0, 0, image.Width, image.Height),
+                    ImageLockMode.ReadWrite, image.PixelFormat);
+
+                // Determine size of image in bytes
+                int bytes = bmpData.Stride * bmpData.Height;
+
+                // Allocate buffer size of image bytes
+                byte[] rgbBuffer = new byte[bytes];
+
+                // Safely copy bitmap data to buffer
+                System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, rgbBuffer, 0, bytes);
+
+                // Iterate through RGB buffer, inverting each color value
+                for (var i = 0; i < bytes; i++)
+                    rgbBuffer[i] = (byte)(255 - rgbBuffer[i]);
+
+                // Copy values back from buffer
+                System.Runtime.InteropServices.Marshal.Copy(rgbBuffer, 0, bmpData.Scan0, bytes);
+
+                // Unlock bits
+                image.UnlockBits(bmpData);
+
+                // Extract filename from path and edit for new save
+                string[] nameSplit = imagePath.Split(new Char[] {'/', '.'});
+                String newFilename = nameSplit[nameSplit.Length - 2] + "_inverse." +
+                                        nameSplit[nameSplit.Length - 1];
+
+                // Save inverted image to new file
+                image.Save(newFilename);
+            }
+        });
     }
 }
