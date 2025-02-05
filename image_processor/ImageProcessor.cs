@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -11,32 +11,39 @@ class ImageProcessor
     {
         foreach (string filename in filenames)
         {
-            Bitmap bitmap = new Bitmap(filename);
-            Color c;
-            for (int x = 0; x < bitmap.Width; x++)
+            try
             {
-                for (int y = 0; y < bitmap.Height; y++)
+                using (Bitmap bitmap = new Bitmap(filename))
                 {
-                    c = bitmap.GetPixel(x, y);
-                    c = Color.FromArgb(255, (255 - c.R), (255 - c.G), (255 - c.B));
-                    bitmap.SetPixel(x, y, c);
+                    Rectangle rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
+                    BitmapData bmpData = bitmap.LockBits(rect, ImageLockMode.ReadWrite, bitmap.PixelFormat);
+
+                    IntPtr ptr = bmpData.Scan0;
+                    int bytes = Math.Abs(bmpData.Stride) * bitmap.Height;
+                    byte[] rgbValues = new byte[bytes];
+
+                    System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+                    for (int i = 0; i < rgbValues.Length; i += 3)
+                    {
+                        rgbValues[i] = (byte)(255 - rgbValues[i]);     // Blue
+                        rgbValues[i + 1] = (byte)(255 - rgbValues[i + 1]); // Green
+                        rgbValues[i + 2] = (byte)(255 - rgbValues[i + 2]); // Red
+                    }
+
+                    System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+                    bitmap.UnlockBits(bmpData);
+
+                    string new_filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                        Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename));
+
+                    bitmap.Save(new_filename);
                 }
             }
-            string new_filename = Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename);
-            bitmap.Save(new_filename);
-        }
-    }
-    ///<summary> GetEncoder Method </summary>
-    private static ImageCodecInfo GetEncoder(ImageFormat format)
-    {
-        ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
-        foreach (ImageCodecInfo codec in codecs)
-        {
-            if (codec.FormatID == format.Guid)
+            catch (Exception ex)
             {
-                return codec;
+                Console.WriteLine($"Erreur lors du traitement de {filename} : {ex.Message}");
             }
         }
-        return null;
     }
 }
