@@ -1,46 +1,43 @@
 using System;
-using System.Drawing;
 using System.IO;
+using System.Drawing;
+using System.Threading.Tasks;
 
 public class ImageProcessor
 {
     public static void Inverse(string[] filenames)
     {
-        foreach (string filepath in filenames)
+        Parallel.ForEach(filenames, filename =>
         {
             try
             {
-                // Charger l'image
-                using (Bitmap bitmap = new Bitmap(filepath))
+                using (Bitmap original = new Bitmap(filename))
                 {
-                    // Inverser les couleurs pixel par pixel
-                    for (int y = 0; y < bitmap.Height; y++)
+                    int width = original.Width;
+                    int height = original.Height;
+                    
+                    Bitmap invertedImage = new Bitmap(width, height);
+
+                    for (int x = 0; x < width; x++)
                     {
-                        for (int x = 0; x < bitmap.Width; x++)
+                        for (int y = 0; y < height; y++)
                         {
-                            Color pixel = bitmap.GetPixel(x, y);
-                            Color invertedColor = Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
-                            bitmap.SetPixel(x, y, invertedColor);
+                            Color pixel = original.GetPixel(x, y);
+                            Color invertedPixel = Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
+                            invertedImage.SetPixel(x, y, invertedPixel);
                         }
                     }
-
-                    // Générer le nom de fichier de sortie
-                    string directory = Path.GetDirectoryName(filepath);
-                    string filenameWithoutExtension = Path.GetFileNameWithoutExtension(filepath);
-                    string extension = Path.GetExtension(filepath);
-                    string newFileName = $"{filenameWithoutExtension}_inverse{extension}";
-                    string newFilePath = Path.Combine(directory, newFileName);
-
-                    // Sauvegarder l'image inversée
-                    bitmap.Save(newFilePath);
+                    
+                    string directory = AppDomain.CurrentDomain.BaseDirectory;
+                    string newFileName = Path.Combine(directory, Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename));
+                    invertedImage.Save(newFileName);
+                    invertedImage.Dispose();
                 }
-
-                Console.WriteLine($"Image inversée créée : {filepath}");
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Erreur lors du traitement de l'image {filepath}: {e.Message}");
+                Console.WriteLine($"Error processing {filename}: {ex.Message}");
             }
-        }
+        });
     }
 }
