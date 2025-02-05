@@ -14,12 +14,6 @@ class ImageProcessor
         {
             try
             {
-                if (!File.Exists(filename))
-                {
-                    Console.WriteLine($"Fichier introuvable : {filename}");
-                    return;
-                }
-
                 using (Bitmap bitmap = new Bitmap(filename))
                 {
                     Rectangle rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
