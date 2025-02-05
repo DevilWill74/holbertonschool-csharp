@@ -26,4 +26,17 @@ class ImageProcessor
             bitmap.Save(new_filename);
         }
     }
+    ///<summary> GetEncoder Method </summary>
+    private static ImageCodecInfo GetEncoder(ImageFormat format)
+    {
+        ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+        foreach (ImageCodecInfo codec in codecs)
+        {
+            if (codec.FormatID == format.Guid)
+            {
+                return codec;
+            }
+        }
+        return null;
+    }
 }
