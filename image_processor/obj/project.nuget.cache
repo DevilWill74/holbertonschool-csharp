@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "RAFwd0NZM4Y=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alexi\\holbertonschool-csharp\\image_processor\\ImageProcessor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\runtime.osx.10.10-x64.corecompat.system.drawing\\5.23.62\\runtime.osx.10.10-x64.corecompat.system.drawing.5.23.62.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.11\\microsoft.netcore.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.11\\microsoft.windowsdesktop.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.11\\microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.11\\microsoft.netcore.app.host.win-x64.8.0.11.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1904",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'System.Drawing.Common' 5.0.2 présente une vulnérabilité de gravité critique connue, https://github.com/advisories/GHSA-rxg9-xrhp-64gj.",
+      "libraryId": "System.Drawing.Common",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

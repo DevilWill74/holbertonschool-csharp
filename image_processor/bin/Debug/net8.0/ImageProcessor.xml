@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ImageProcessor</name>
+    </assembly>
+    <members>
+        <member name="T:ImageProcessor">
+            <summary>Classe ImageProcessor pour le traitement des images</summary>
+        </member>
+        <member name="M:ImageProcessor.Inverse(System.String[])">
+            <summary>Inverse les couleurs d'une liste d'images</summary>
+        </member>
+    </members>
+</doc>
