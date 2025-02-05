@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ImageProcessor</name>
+    </assembly>
+    <members>
+        <member name="T:ImageProcessor">
+            <summary> Class ImageProcessor </summary>
+        </member>
+        <member name="M:ImageProcessor.Inverse(System.String[])">
+            <summary> Inverse Method: produce inverse of given image </summary>
+        </member>
+        <member name="M:ImageProcessor.GetEncoder(System.Drawing.Imaging.ImageFormat)">
+            <summary> GetEncoder Method </summary>
+        </member>
+    </members>
+</doc>

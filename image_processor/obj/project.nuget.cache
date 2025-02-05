@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kgj5TlaOEt4=",
+  "dgSpecHash": "WuKJ3VVFjTQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\Alexi\\holbertonschool-csharp\\image_processor\\ImageProcessor.csproj",
   "expectedPackageFiles": [
@@ -8,9 +8,11 @@
     "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
     "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.1.0\\microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
     "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
-    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.1\\microsoft.netcore.platforms.5.0.1.nupkg.sha512",
     "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
-    "C:\\Users\\Alexi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Alexi\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
   ],
   "logs": [
     {
@@ -89,6 +91,16 @@
       "warningLevel": 1,
       "message": "Le package 'Microsoft.NETCore.App' 2.1.0 présente une vulnérabilité de gravité moyenne connue, https://github.com/advisories/GHSA-x5qj-9vmx-7g6g.",
       "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1904",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'System.Drawing.Common' 5.0.2 présente une vulnérabilité de gravité critique connue, https://github.com/advisories/GHSA-rxg9-xrhp-64gj.",
+      "libraryId": "System.Drawing.Common",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
       ]
