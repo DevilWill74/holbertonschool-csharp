@@ -1,43 +1,29 @@
-using System;
-using System.IO;
+﻿using System;
 using System.Drawing;
-using System.Threading.Tasks;
+using System.Drawing.Imaging;
+using System.IO;
 
-public class ImageProcessor
+///<summary> Class ImageProcessor </summary>
+class ImageProcessor
 {
+    ///<summary> Inverse Method: produce inverse of given image </summary>
     public static void Inverse(string[] filenames)
     {
-        Parallel.ForEach(filenames, filename =>
+        foreach (string filename in filenames)
         {
-            try
+            Bitmap bitmap = new Bitmap(filename);
+            Color c;
+            for (int x = 0; x < bitmap.Width; x++)
             {
-                using (Bitmap original = new Bitmap(filename))
+                for (int y = 0; y < bitmap.Height; y++)
                 {
-                    int width = original.Width;
-                    int height = original.Height;
-                    
-                    Bitmap invertedImage = new Bitmap(width, height);
-
-                    for (int x = 0; x < width; x++)
-                    {
-                        for (int y = 0; y < height; y++)
-                        {
-                            Color pixel = original.GetPixel(x, y);
-                            Color invertedPixel = Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
-                            invertedImage.SetPixel(x, y, invertedPixel);
-                        }
-                    }
-                    
-                    string directory = AppDomain.CurrentDomain.BaseDirectory;
-                    string newFileName = Path.Combine(directory, Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename));
-                    invertedImage.Save(newFileName);
-                    invertedImage.Dispose();
+                    c = bitmap.GetPixel(x, y);
+                    c = Color.FromArgb(255, (255 - c.R), (255 - c.G), (255 - c.B));
+                    bitmap.SetPixel(x, y, c);
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error processing {filename}: {ex.Message}");
-            }
-        });
+            string new_filename = Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename);
+            bitmap.Save(new_filename);
+        }
     }
 }
