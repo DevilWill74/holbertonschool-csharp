@@ -2,28 +2,43 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Threading.Tasks;
 
-///<summary> Class ImageProcessor </summary>
-class ImageProcessor
+public class ImageProcessor
 {
-    ///<summary> Inverse Method: produce inverse of given image </summary>
     public static void Inverse(string[] filenames)
     {
-        foreach (string filename in filenames)
+        Parallel.ForEach(filenames, filename =>
         {
-            Bitmap bitmap = new Bitmap(filename);
-            Color c;
-            for (int x = 0; x < bitmap.Width; x++)
+            try
             {
-                for (int y = 0; y < bitmap.Height; y++)
+                using (Bitmap original = new Bitmap(filename))
                 {
-                    c = bitmap.GetPixel(x, y);
-                    c = Color.FromArgb(255, (255 - c.R), (255 - c.G), (255 - c.B));
-                    bitmap.SetPixel(x, y, c);
+                    int width = original.Width;
+                    int height = original.Height;
+
+                    // Traitement des pixels
+                    for (int y = 0; y < height; y++)
+                    {
+                        for (int x = 0; x < width; x++)
+                        {
+                            Color pixel = original.GetPixel(x, y);
+                            Color inverted = Color.FromArgb(pixel.A, 255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
+                            original.SetPixel(x, y, inverted);
+                        }
+                    }
+
+                    // Enregistrement
+                    string newFileName = Path.Combine(Directory.GetCurrentDirectory(), 
+                        Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename));
+
+                    original.Save(newFileName, original.RawFormat);
                 }
             }
-            string new_filename = Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename);
-            bitmap.Save(new_filename);
-        }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erreur avec le fichier {filename}: {ex.Message}");
+            }
+        });
     }
 }
