@@ -1,44 +1,47 @@
-﻿using System;
+﻿﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 using System.Threading.Tasks;
 
-public class ImageProcessor
+class ImageProcessor
 {
+    /// <summary>
+    /// Inverts a list of image(s).
+    /// </summary>
+    /// <param name="filenames">A list of images to invert.</param>
     public static void Inverse(string[] filenames)
     {
-        Parallel.ForEach(filenames, filename =>
+        foreach (string imagePath in filenames)
         {
-            try
+            using (Bitmap image = new Bitmap(imagePath))
             {
-                using (Bitmap original = new Bitmap(filename))
+                int width = image.Width;
+                int height = image.Height;
+
+                BitmapData bmpData = image.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+
+                int stride = bmpData.Stride;
+                byte[] pixelBuffer = new byte[stride * height];
+
+                System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
+
+                for (int i = 0; i < pixelBuffer.Length / 4; i++)
                 {
-                    int width = original.Width;
-                    int height = original.Height;
-
-                    // Traitement des pixels
-                    for (int y = 0; y < height; y++)
-                    {
-                        for (int x = 0; x < width; x++)
-                        {
-                            Color pixel = original.GetPixel(x, y);
-                            Color inverted = Color.FromArgb(pixel.A, 255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
-                            original.SetPixel(x, y, inverted);
-                        }
-                    }
-
-                    // Enregistrement
-                    string newFileName = Path.Combine(Directory.GetCurrentDirectory(), 
-                        Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename));
-
-                    original.Save(newFileName, original.RawFormat);
+                    int x = i * 4;
+                    pixelBuffer[x] ^= 0xFF;
+                    pixelBuffer[x + 1] ^= 0xFF;
+                    pixelBuffer[x + 2] ^= 0xFF;
                 }
+
+                System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
+
+                image.UnlockBits(bmpData);
+
+                string[] nameSplit = imagePath.Split(new char[] { '/', '.' });
+                string newFilename = $"{nameSplit[nameSplit.Length - 2]}_inverse.{nameSplit[nameSplit.Length - 1]}";
+
+                image.Save(newFilename);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erreur avec le fichier {filename}: {ex.Message}");
-            }
-        });
+        }
     }
-}
+    }
