@@ -11,37 +11,21 @@ class ImageProcessor
     /// <param name="filenames">A list of images to invert.</param>
     public static void Inverse(string[] filenames)
     {
-        foreach (string imagePath in filenames)
+        foreach (string filename in filenames)
         {
-            using (Bitmap image = new Bitmap(imagePath))
+            try
             {
-                int width = image.Width;
-                int height = image.Height;
+                byte[] imageData = File.ReadAllBytes(filename);
 
-                BitmapData bmpData = image.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+                byte[] invertedData = InvertColors(imageData);
 
-                int stride = bmpData.Stride;
-                byte[] pixelBuffer = new byte[stride * height];
-
-                System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
-
-                for (int i = 0; i < pixelBuffer.Length / 4; i++)
-                {
-                    int x = i * 4;
-                    pixelBuffer[x] ^= 0xFF;
-                    pixelBuffer[x + 1] ^= 0xFF;
-                    pixelBuffer[x + 2] ^= 0xFF;
-                }
-
-                System.Runtime.InteropServices.Marshal.Copy(pixelBuffer, 0, bmpData.Scan0, pixelBuffer.Length);
-
-                image.UnlockBits(bmpData);
-
-                string[] nameSplit = imagePath.Split(new char[] { '/', '.' });
-                string newFilename = $"{nameSplit[nameSplit.Length - 2]}_inverse.{nameSplit[nameSplit.Length - 1]}";
-
-                image.Save(newFilename);
+                string outputFilename = $"{Path.GetFileNameWithoutExtension(filename)}_inverse{Path.GetExtension(filename)}";
+                File.WriteAllBytes(outputFilename, invertedData);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing {filename}: {ex.Message}");
             }
         }
     }
-    }
+}
